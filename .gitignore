@@ -1,0 +1,6 @@
+*.pyc
+*.cert
+temp/
+cache/
+.netrwhist
+tags
