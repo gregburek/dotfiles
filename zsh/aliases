@@ -1,0 +1,54 @@
+# changing directory to code project
+function c { cd ~/code/$1; }
+
+# cd
+alias ..='cd ..'
+
+# ls
+alias ls="ls -F"
+alias l="ls -lAh"
+alias ll="ls -l"
+alias la='ls -Al'          # show hidden files
+alias lx='ls -lXB'         # sort by extension
+alias lk='ls -lSr'         # sort by size, biggest last
+alias lc='ls -ltcr'        # sort by and show change time, most recent last
+alias lu='ls -ltur'        # sort by and show access time, most recent last
+alias lt='ls -ltr'         # sort by date, most recent last
+alias lm='ls -al |more'    # pipe through 'more'
+alias lr='ls -lR'          # recursive ls
+alias tree='tree -Csu'     # nice alternative to 'recursive ls'
+
+# rails
+alias sc='script/console'
+alias ss='script/server'
+alias sg='script/generate'
+alias a='autotest -rails'
+alias tlog='tail -f log/development.log'
+alias scaffold='script/generate nifty_scaffold'
+alias migrate='rake db:migrate db:test:clone'
+alias rst='touch tmp/restart.txt'
+
+# commands starting with % for pasting from web
+alias %=' '
+
+# ps alias
+alias ps-rsync='ps auxww | grep -i 'rsync''
+alias ps-ssh='ps auxww | grep -i 'ssh''
+
+# ssh aliases
+alias sshmini='ssh -p 58802 gregburek@mini.gregburek.com'
+alias sshtunnel='ssh -f -N  -o ControlMaster=no -p 58802 gregburek@mini.gregburek.com -L 1202:localhost:5900 -L 1203:localhost:548 -L 1204:localhost:9091 -D 8080'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+#alias du='du -ksh'       # Makes a more readable output.
+alias df='df -h'
+alias path='echo -e ${PATH//:/\\n}'
+
+alias work='sudo cp /etc/hosts.work /etc/hosts'
+alias play='sudo cp /etc/hosts.play /etc/hosts'
+
+alias vim='mvim -v'
+alias videosync='nice -n 20 rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax -p 58802" gregburek@mini.gregburek.com:/Users/gregburek/Movies/Converted/ /Users/gregburek/Music/Incoming/'
+# alias videosync='rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax" gregburek@dev.gregburek.com:/home/gregburek/Downloads/ /Users/gregburek/Music/Incoming/'
+alias mutt 'cd ~/Downloads && mutt'
