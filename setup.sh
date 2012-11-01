@@ -6,7 +6,7 @@ ln -s ./urlview ~/.urlview
 
 ln -s ./vim ~/.vim
 
-ln -a ./tmux.conf ~/.tmux.conf
+ln -s ./tmux.conf ~/.tmux.conf
 
 ln -s ./zsh ~/.zsh
 
