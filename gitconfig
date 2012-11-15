@@ -1,0 +1,20 @@
+[user]
+	name = Greg Burek
+	email = gburek@salesforce.com
+[core]
+	quotepath = false
+	editor = /usr/local/bin/vim
+[format]
+	pretty = oneline
+[color]
+	interactive = auto
+	ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+[alias]
+	unstage = reset HEAD
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+	update = !git fetch origin && git rebase origin/master
+    status = status -sb
+	ca = commit --amend --reuse-message=HEAD
