@@ -101,3 +101,40 @@ if has("unix")
                 \   'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
                 \ }
 endif
+
+" Persistent undo
+if has('persistent_undo')
+    set undofile
+endif
+set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set undolevels=5000
+
+" Remap the undo key to warn about stepping back into a buffer's pre-history...
+nnoremap <expr> u VerifyUndo()
+" Track each buffer's starting position in undo history...
+augroup UndoWarnings 
+    autocmd!
+    autocmd BufReadPost,BufNewFile *
+                \ :call Rememberundo_start()
+augroup END
+
+function! Rememberundo_start ()
+    let b:undo_start = exists('b:undo_start')
+                \ ? b:undo_start
+                \ : undotree().seq_cur
+endfunction
+
+function! VerifyUndo ()
+    " Are we back at the start of this session
+    " (but still with undos possible)???
+    let undo_now = undotree().seq_cur
+    if undo_now > 0 && undo_now == b:undo_start
+        " If so, ask whether to undo into pre-history...
+        return confirm('',
+                    \ "Undo into previous session? (&Yes\n&No)",1) == 1
+                    \ ? "\<C-L>u" : "\<C-L>"
+    endif
+    " Otherwise, just undo...
+    return 'u'
+endfunction
+
