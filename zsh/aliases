@@ -48,7 +48,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias work='sudo cp /etc/hosts.work /etc/hosts'
 alias play='sudo cp /etc/hosts.play /etc/hosts'
 
-alias vim='mvim -v'
 alias videosync='nice -n 20 rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax -p 58802" gregburek@mini.gregburek.com:/Users/gregburek/Movies/Converted/ /Users/gregburek/Music/Incoming/'
 # alias videosync='rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax" gregburek@dev.gregburek.com:/home/gregburek/Downloads/ /Users/gregburek/Music/Incoming/'
 alias mutt 'cd ~/Downloads && mutt'
