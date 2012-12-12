@@ -1,1 +1,7 @@
 Greg Burek's dot file settings. 
+
+```
+./install.sh
+git submodule init
+git submodule update
+```
