@@ -41,3 +41,12 @@ alias play='sudo cp /etc/hosts.play /etc/hosts'
 alias videosync='nice -n 20 rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax -p 58802" gregburek@mini.gregburek.com:/Users/gregburek/Movies/Converted/ /Users/gregburek/Music/Incoming/'
 # alias videosync='rsync -a --exclude-from=/Users/gregburek/.rsync/exclude --timeout=999 --times --log-format="rsync: %f" --partial --progress -e "ssh -ax" gregburek@dev.gregburek.com:/home/gregburek/Downloads/ /Users/gregburek/Music/Incoming/'
 alias mutt 'cd ~/Downloads && mutt'
+
+# git aliases to be combined with ok-my-zsh
+unalias gst
+alias gst='git status -sb'
+unalias gl
+alias gl='git lg'
+compdef _git glgg=git-log
+unalias ga
+alias ga='git add --update'
