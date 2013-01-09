@@ -1,6 +1,6 @@
 [user]
 	name = Greg Burek
-	email = gburek@salesforce.com
+	email = gregburek@heroku.com
 [core]
 	quotepath = false
 	editor = /usr/local/bin/vim
@@ -18,5 +18,5 @@
 	update = !git fetch origin && git rebase origin/master
     status = status -sb
 	ca = commit --amend --reuse-message=HEAD
-[push]
-	default = simple
+#[push]
+#	default = simple
