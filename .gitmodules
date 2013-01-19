@@ -31,9 +31,6 @@
 [submodule "mutt/mutt-colors-solarized"]
 	path = mutt/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule "vim/bundle/minibufexplorer"]
-	path = vim/bundle/minibufexplorer
-	url = git://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
