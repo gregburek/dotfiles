@@ -50,3 +50,6 @@ alias gl='git lg'
 compdef _git glgg=git-log
 unalias ga
 alias ga='git add --update'
+
+alias :q="exit"
+alias s="bundle exec rspec --format=documentation"
