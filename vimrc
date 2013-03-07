@@ -37,7 +37,7 @@ colorscheme solarized
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -82,6 +82,7 @@ nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>r :NERDTreeFind<cr>
 let g:tagbar_ctags_bin='ctags'  " Proper Ctags locations
 noremap <silent> <Leader>y :TagbarToggle<cr>
+let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ack 
 nnoremap <leader>s :Ack<cr>
 
