@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-emacs-bindings"]
 	path = vim/bundle/vim-emacs-bindings
 	url = git@github.com:maxbrunsfeld/vim-emacs-bindings.git
+[submodule "vim/bundle/vim-json"]
+	path = vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
