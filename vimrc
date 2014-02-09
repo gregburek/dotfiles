@@ -8,6 +8,12 @@ set nocompatible                " choose no compatibility with legacy vi
 syntax enable
 set encoding=utf-8
 
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set nu                          " line numbers
@@ -20,6 +26,7 @@ set wildmode=list:longest       " complete only up to the point of ambiguity
 set title
 set shortmess=atI               " Stifle many interruptive prompts
 set visualbell
+set colorcolumn=80
 
 "" Scrolling
 set scrolloff=3

@@ -37,3 +37,12 @@
 [submodule "vim/bundle/vim-gutter"]
 	path = vim/bundle/vim-gutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/mustache"]
+	path = vim/bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/vim-tmux-navigator"]
+	path = vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "vim/bundle/vim-emacs-bindings"]
+	path = vim/bundle/vim-emacs-bindings
+	url = git@github.com:maxbrunsfeld/vim-emacs-bindings.git
