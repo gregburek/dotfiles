@@ -38,7 +38,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "" Solarized settings
-set background=dark
+set background=light
 let g:solarized_termtrans = 1
 colorscheme solarized
 
