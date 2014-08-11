@@ -14,7 +14,7 @@
     status = auto
 [alias]
 	unstage = reset HEAD
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --find-renames --ignore-all-space
 	update = !git fetch origin && git rebase origin/master
     status = status -sb
 	ca = commit --amend --reuse-message=HEAD
