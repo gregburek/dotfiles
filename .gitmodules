@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "vim/vim/bundle/vim-polyglot"]
+	path = vim/vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
