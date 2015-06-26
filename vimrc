@@ -1,14 +1,45 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-"" call pathogen#infect()
-"" many settings from http://items.sjbach.com/319/configuring-vim-right
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set nocompatible                " choose no compatibility with legacy vi
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'rking/ag.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 syntax enable
 set encoding=utf-8
 
-filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
@@ -90,8 +121,8 @@ nmap <leader>r :NERDTreeFind<cr>
 let g:tagbar_ctags_bin='ctags'  " Proper Ctags locations
 noremap <silent> <Leader>y :TagbarToggle<cr>
 let g:ackprg = 'ag --nogroup --nocolor --column'
-nnoremap <leader>a :Ack 
-nnoremap <leader>s :Ack<cr>
+nnoremap <leader>a :Ag 
+nnoremap <leader>s :Ag<cr>
 
 
 "------------------------------------------------------------
