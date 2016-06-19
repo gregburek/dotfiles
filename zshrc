@@ -8,3 +8,6 @@
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/gburek/.travis/travis.sh ] && source /Users/gburek/.travis/travis.sh

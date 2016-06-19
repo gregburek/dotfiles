@@ -12,12 +12,15 @@
     branch = auto
     diff = auto
     status = auto
+[diff]
+  compactionHeuristic = true
 [alias]
 	unstage = reset HEAD
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --find-renames --ignore-all-space
 	update = !git fetch origin && git rebase origin/master
     status = status -sb
 	ca = commit --amend --reuse-message=HEAD
+	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 #[push]
 #	default = simple
 [push]
@@ -25,6 +28,8 @@
 [credential]
 	helper = osxkeychain
 [filter "media"]
+	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
-	required = true
+[colors]
+	ui = true

@@ -21,6 +21,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'vim-scripts/vim-auto-save'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,7 +72,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "" Solarized settings
-set background=light
+set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
 
@@ -97,6 +100,7 @@ autocmd BufRead *.py nmap <F5> :!python %<CR>
 
 "" Ruby specific
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop --require rubocop-rspec --except RSpec/VerifiedDoubles '
 
 "" Omnicomplete
 filetype plugin on
@@ -177,3 +181,7 @@ function! VerifyUndo ()
     return 'u'
 endfunction
 
+:imap jk <Esc>
+:imap kj <Esc>
+
+"let g:auto_save = 1

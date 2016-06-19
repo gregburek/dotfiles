@@ -53,4 +53,9 @@ alias ga='git add --update'
 alias gbl='for k in `git branch | noglob perl -pe s/^..//`;do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k|head -n 1`\\t$k;done|sort -r'
 
 alias :q="exit"
-alias s="bundle exec rspec --format=documentation"
+alias s="bundle exec rspec --format=documentation --order default"
+alias gh=git config --get remote.upstream.url | noglob ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
+alias gho=git config --get remote.origin.url | noglob ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
+
+alias h=heroku
+alias hs='heroku sudo'
