@@ -21,6 +21,8 @@
     status = status -sb
 	ca = commit --amend --reuse-message=HEAD
 	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+	up = pull --rebase --autostash upstream master
+	oup = pull --rebase --autostash origin master
 #[push]
 #	default = simple
 [push]

@@ -15,15 +15,11 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'rking/ag.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
+Plugin 'wincent/command-t'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'vim-scripts/vim-auto-save'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,23 +123,12 @@ noremap <silent> <Leader>y :TagbarToggle<cr>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ag 
 nnoremap <leader>s :Ag<cr>
+nnoremap <C-P> :CommandT<cr>
 
-
-"------------------------------------------------------------
-" CtrlP
-"------------------------------------------------------------
-" Set the max files
-let g:ctrlp_max_files = 10000
-
-" Optimize file searching
-if has("unix")
-    let g:ctrlp_user_command = {
-                \   'types': {
-                \       1: ['.git/', 'cd %s && git ls-files']
-                \   },
-                \   'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
-                \ }
-endif
+let g:CommandTFileScanner = "git"
+let g:CommandTMaxHeight = 30
+let g:CommandTMaxFiles = 500000
+let g:CommandTSCMDirectories='.git,.hg,.svn,.bzr,_darcs,manifest.webapp'
 
 " Persistent undo
 if has('persistent_undo')
@@ -184,4 +169,4 @@ endfunction
 :imap jk <Esc>
 :imap kj <Esc>
 
-"let g:auto_save = 1
+ "let g:auto_save = 1
