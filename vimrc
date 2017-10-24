@@ -49,6 +49,7 @@ filetype plugin indent on       " load file type plugins + indentation
 set nu                          " line numbers
 set ruler
 let mapleader = ","
+let g:mapleader = ","
 set hidden                      " allow Vim to manage multiple buffers effectively
 set history=1000                " Keep a longer history
 set wildmenu                    " Make file/command completion useful
@@ -57,6 +58,15 @@ set title
 set shortmess=atI               " Stifle many interruptive prompts
 set visualbell
 set colorcolumn=80
+set number                      " Show line numbers
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set encoding=utf-8              " Set default encoding to UTF-8
+set autowrite                   " Automatically save before :next, :make etc.
+au FocusLost * :wa              " Set vim to save the file on focus out.
+set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
+set ttyfast
+set lazyredraw                  " Wait to redraw "
 
 "" Scrolling
 set scrolloff=3
@@ -84,8 +94,159 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 nmap <silent> <leader>n :silent :nohlsearch<CR>
+" Remove search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
-"" Python specific 
+" speed up syntax highlighting
+set nocursorcolumn
+set nocursorline
+
+syntax sync minlines=256
+set synmaxcol=300
+set re=1
+
+" open help vertically
+command! -nargs=* -complete=help Help vertical belowright help <args>
+autocmd FileType help wincmd L
+
+" Make Vim to handle long lines nicely.
+set textwidth=79
+set formatoptions=qrn1
+
+set autoindent
+set complete-=i
+set showmatch
+set smarttab
+
+set et
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set nrformats-=octal
+set shiftround
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" Better Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
+
+if &history < 1000
+  set history=50
+endif
+
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
+
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    au!
+
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \	exe "normal! g`\"" |
+          \ endif
+
+  augroup END
+else
+endif " has("autocmd")
+
+" Buffer prev/next
+nnoremap <C-x> :bnext<CR>
+nnoremap <C-z> :bprev<CR>
+
+" Better split switching
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Center the screen
+nnoremap <space> zz
+
+" Move up and down on splitted lines (on small width screens)
+map <Up> gk
+map <Down> gj
+map k gk
+map j gj
+
+" Just go out in insert mode
+imap jk <ESC>l
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Do not show stupid q: window
+map q: :q
+command WQ wq
+command Wq wq
+command Wqa wqa
+command W w
+command Q q
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" never do this again --> :set paste <ctrl-v> :set no paste
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+" set 80 character line limit
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+"" Python specific
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
       \ [%l/%L\ (%p%%)
@@ -118,6 +279,14 @@ let g:SuperTabLongestHighlight = 1
 "" shortcuts 
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>r :NERDTreeFind<cr>
+
+let NERDTreeShowHidden=1
+
+let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
+
+" Close nerdtree and vim on close file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 let g:tagbar_ctags_bin='ctags'  " Proper Ctags locations
 noremap <silent> <Leader>y :TagbarToggle<cr>
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -165,8 +334,5 @@ function! VerifyUndo ()
     " Otherwise, just undo...
     return 'u'
 endfunction
-
-:imap jk <Esc>
-:imap kj <Esc>
 
  "let g:auto_save = 1
