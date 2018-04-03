@@ -256,6 +256,9 @@ au FileType py set textwidth=79 " PEP-8 Friendly
 autocmd BufRead *.py nmap <F5> :!python %<CR>
 
 "" Ruby specific
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+"" Ruby specific
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop --require rubocop-rspec --except RSpec/VerifiedDoubles '
 
