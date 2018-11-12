@@ -4,6 +4,7 @@
 [core]
 	quotepath = false
 	editor = /usr/local/bin/vim
+	excludesfile = ~/.gitignore_global
 [format]
 	pretty = oneline
 [color]
