@@ -59,3 +59,5 @@ alias gho=git config --get remote.origin.url | noglob ruby -ne 'puts %{https://g
 
 alias h=heroku
 alias hs='heroku sudo'
+
+alias _pf='git push --force-with-lease'

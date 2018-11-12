@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tssm/fairyfloss.vim'
+Plugin 'lilydjwg/colorizer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,6 +83,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
+set termguicolors
 
 "" Whitespace
 set nowrap                      " don't wrap lines

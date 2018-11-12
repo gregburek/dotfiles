@@ -24,12 +24,8 @@
 	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 	up = pull --rebase --autostash upstream master
 	oup = pull --rebase --autostash origin master
-#[push]
-#	default = simple
 [push]
-	default = simple
-[credential]
-	helper = osxkeychain
+	default = current
 [filter "media"]
 	required = true
 	clean = git media clean %f
