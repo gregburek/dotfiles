@@ -3,3 +3,5 @@ temp/
 cache/
 .netrwhist
 tags
+
+vim/bundle/
