@@ -9,9 +9,6 @@ SAVEHIST=1000
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
 
-# added by travis gem
-[ -f /Users/gburek/.travis/travis.sh ] && source /Users/gburek/.travis/travis.sh
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
         ### Mac cursor commands for iTerm2; map ctrl+arrows or alt+arrows to fast-move
         bindkey -e
