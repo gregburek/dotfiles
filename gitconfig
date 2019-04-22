@@ -33,14 +33,9 @@
 	smudge = git media smudge %f
 [colors]
 	ui = true
-[credential "https://git-codecommit.us-east-1.amazonaws.com"]
-	UseHttpPath = true
 [commit]
 	verbose = true
+[hub]
+	protocol = https
 [credential]
-	helper = !git-credential-codecommit-osx $@
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	helper = osxkeychain
