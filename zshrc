@@ -3,6 +3,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 #. ~/.zsh/config
 #. ~/.zsh/completion
+if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
+  FPATH=/usr/local/share/zsh/site-functions:$FPATH
+fi
 . ~/.zsh/oh-my-zshrc
 . ~/.zsh/aliases
 
