@@ -26,8 +26,6 @@ alias ps-rsync='ps auxww | grep -i 'rsync''
 alias ps-ssh='ps auxww | grep -i 'ssh''
 
 # ssh aliases
-alias sshmini='ssh -p 58802 gregburek@mini.gregburek.com'
-alias sshtunnel='ssh -f -N  -o ControlMaster=no -p 58802 gregburek@mini.gregburek.com -L 1202:localhost:5900 -L 1203:localhost:548 -L 1204:localhost:9091 -D 8080'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -54,8 +52,6 @@ alias gbl='for k in `git branch | noglob perl -pe s/^..//`;do echo -e `git show 
 
 alias :q="exit"
 alias s="bundle exec rspec --format=documentation --order default"
-alias gh=git config --get remote.upstream.url | noglob ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
-alias gho=git config --get remote.origin.url | noglob ruby -ne 'puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}' | xargs open
 
 alias h=heroku
 alias hs='heroku sudo'
