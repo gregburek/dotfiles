@@ -7,7 +7,7 @@ ZSH_CUSTOM=$HOME/.zsh/custom
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
 
-plugins=(autojump aws brew compleat gem git gitfast hub heroku history-substring-search osx pyenv pylint python terraform zsh_reload zsh-syntax-highlighting)
+plugins=(autojump aws compleat gem git gitfast github history-substring-search osx pyenv pylint python terraform zsh_reload zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
