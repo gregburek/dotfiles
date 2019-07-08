@@ -341,4 +341,7 @@ function! VerifyUndo ()
     return 'u'
 endfunction
 
- "let g:auto_save = 1
+"let g:auto_save = 1
+
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
