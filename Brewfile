@@ -14,8 +14,6 @@ brew "sqlite"
 brew "ansible"
 # MPEG-4 command-line tool
 brew "atomicparsley"
-# Automatic configure script builder
-brew "autoconf"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Atmel AVR MCU programmer
@@ -44,6 +42,8 @@ brew "fzf"
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Gorgeous metric visualizations and dashboards for timeseries databases
+brew "grafana", restart_service: true
 # Add GitHub support to git on the command-line
 brew "hub"
 # Configurable static site generator
@@ -82,6 +82,8 @@ brew "ripgrep"
 brew "shellcheck"
 # netcat on steroids
 brew "socat"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # Tool to build, change, and version infrastructure
@@ -113,9 +115,11 @@ brew "zsh-completions"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # GNU compiler collection for AVR 8-bit and 32-bit Microcontrollers
-brew "osx-cross/avr/avr-gcc@8", link: true
+brew "osx-cross/avr/avr-gcc@8"
 # GNU Embedded Toolchain for ARM
 brew "px4/px4/gcc-arm-none-eabi"
 cask "aws-vault"
 cask "font-fira-code"
+cask "google-cloud-sdk"
 cask "mactex-no-gui"
+cask "vlc"
