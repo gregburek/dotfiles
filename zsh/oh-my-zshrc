@@ -4,10 +4,12 @@ ZSH_THEME="burek-sunrise"
 
 ZSH_CUSTOM=$HOME/.zsh/custom
 
+FZF_BASE=/usr/local/opt/fzf
+
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
 
-plugins=(autojump aws compleat gem git gitfast github history-substring-search osx pyenv pylint python terraform zsh_reload zsh-syntax-highlighting)
+plugins=(autojump aws compleat gem git gitfast github history-substring-search osx pyenv pylint python terraform zsh_reload zsh-syntax-highlighting fzf)
 
 source $ZSH/oh-my-zsh.sh
 
