@@ -25,6 +25,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
@@ -127,6 +128,7 @@ endif
 
 " Add a bit extra margin to the left
 set foldcolumn=1
+set nofoldenable
 
 " Use numbers for jeffkreeftmeijer/vim-numbertoggle
 set number relativenumber
@@ -370,6 +372,8 @@ map <leader>x :e ~/buffer.md<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Set update time to something sane
+set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
