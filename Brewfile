@@ -14,6 +14,8 @@ brew "sqlite"
 brew "ansible"
 # MPEG-4 command-line tool
 brew "atomicparsley"
+# Automatic configure script builder
+brew "autoconf"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Atmel AVR MCU programmer
@@ -42,8 +44,6 @@ brew "fzf"
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Gorgeous metric visualizations and dashboards for timeseries databases
-brew "grafana", restart_service: true
 # Add GitHub support to git on the command-line
 brew "hub"
 # Configurable static site generator
@@ -54,6 +54,8 @@ brew "jq"
 brew "kubernetes-cli"
 # File compressor
 brew "lzop"
+# GUI for vim, made for macOS
+brew "macvim"
 # Remote terminal application
 brew "mosh"
 # 'traceroute' and 'ping' in a single tool
@@ -96,8 +98,6 @@ brew "tldr"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Vi 'workalike' with many additional features
-brew "vim"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
@@ -120,6 +120,7 @@ brew "osx-cross/avr/avr-gcc@8"
 brew "px4/px4/gcc-arm-none-eabi"
 cask "aws-vault"
 cask "font-fira-code"
+cask "font-firacode-nerd-font"
 cask "google-cloud-sdk"
 cask "mactex-no-gui"
 cask "vlc"
