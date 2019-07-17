@@ -565,12 +565,14 @@ let g:airline#extensions#hunks#enabled = 0
 " => fzf section
 """""""""""""""""""""""""""""
 nnoremap <leader>af :Ag<space>
+nnoremap <leader>rg :Rg<space>
 
 " Leader Commands
 nnoremap <silent><leader>. :call Fzf_dev()<CR>
 nnoremap <leader>gf :GFiles<CR>
 nnoremap <leader>gm :GFiles?<CR>
 nnoremap <leader>bl :BLines<CR>
+nnoremap <C-p> :Files<Cr>
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
