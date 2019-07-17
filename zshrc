@@ -31,3 +31,5 @@ export BAT_PAGER="less -R"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/sbin:$PATH"
+
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
