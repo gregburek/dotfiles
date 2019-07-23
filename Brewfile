@@ -34,6 +34,8 @@ brew "curl"
 brew "dfu-programmer"
 # USB programmer
 brew "dfu-util"
+# AST-based pattern checker for JavaScript
+brew "eslint"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream audio and video
@@ -64,6 +66,8 @@ brew "mtr"
 brew "nmap"
 # Python dependency management tool
 brew "pipenv"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Show ps output as a tree
 brew "pstree"
 # Monitor data's progress through a pipe
@@ -104,6 +108,8 @@ brew "watch"
 brew "wget"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
+# Linter for YAML files
+brew "yamllint"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
 # General-purpose lossless data-compression library
