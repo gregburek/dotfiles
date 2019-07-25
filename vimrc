@@ -146,6 +146,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 set background=dark
+colorscheme slate
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -221,7 +222,7 @@ set shiftwidth=4
 set tabstop=4
 
 " Linebreak on 500 characters
-set lbr
+set linebreak
 set tw=500
 
 set ai "Auto indent
@@ -527,6 +528,14 @@ call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
+" https://github.com/scrooloose/nerdtree/issues/21#issuecomment-3348390
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 """"""""""""""""""""""""""""""
 " => vim-fugitive section
 """""""""""""""""""""""""""""
@@ -558,9 +567,11 @@ let g:ale_python_auto_pipenv = 1
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
             \  'javascript': ['eslint'],
+            \  'json': ['prettier'],
             \  'python': ['black'],
             \}
 let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 
 
 """"""""""""""""""""""""""""""
@@ -571,6 +582,15 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
+
+""""""""""""""""""""""""""""""
+" => vim-markdown section
+"""""""""""""""""""""""""""""
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_frontmatter = 1
+autocmd Filetype markdown set expandtab
+autocmd Filetype markdown set shiftwidth=2
+autocmd Filetype markdown set tw=80
 
 """"""""""""""""""""""""""""""
 " => fzf section
