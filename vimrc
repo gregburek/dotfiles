@@ -1,24 +1,13 @@
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
-
 call plug#begin()
 Plug '/usr/local/opt/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'junegunn/fzf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -27,7 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'dougireton/vim-chef'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -532,9 +521,10 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
-autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | ene | endif
 
 """"""""""""""""""""""""""""""
 " => vim-fugitive section
@@ -565,13 +555,20 @@ let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_enter = 0
 let g:ale_python_auto_pipenv = 1
 let g:ale_fixers = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \  'javascript': ['eslint'],
-            \  'json': ['prettier'],
-            \  'python': ['black'],
-            \}
+\   'go':       ['gofmt', 'goimports'],
+\   'json':     ['jq'],
+\   'sh':       ['shfmt'],
+\   'python':   ['black'],
+\   '*':        ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'terraform': ['terraform'],
+\}
 let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 79'
+let g:ale_sh_shfmt_options = '-s -i 2 -ci'
+let g:ale_sh_shellcheck_exclusions = 'SC1090,SC2016'
+let g:ale_linters_ignore = {'ruby': ['rubocop']}
+let g:ale_pattern_options = {'configly-data': {'ale_fixers': []}, 'alerts': {'ale_fixers': []}}
 
 
 """"""""""""""""""""""""""""""

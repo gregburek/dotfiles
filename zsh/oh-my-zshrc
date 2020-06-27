@@ -9,7 +9,7 @@ FZF_BASE=/usr/local/opt/fzf
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
 
-plugins=(autojump ansible aws compleat gem git gitfast github history-substring-search nvm osx pyenv pylint python terraform zsh_reload zsh-syntax-highlighting fzf)
+plugins=(autojump ansible aws compleat gem git gitfast github history-substring-search osx python terraform zsh_reload zsh-syntax-highlighting fzf)
 
 source $ZSH/oh-my-zsh.sh
 

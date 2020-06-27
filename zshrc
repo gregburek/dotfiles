@@ -28,8 +28,4 @@ export F2F_CTRL_T_COMMAND="fd $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 export BAT_PAGER="less -R"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="/usr/local/sbin:$PATH"
-
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
