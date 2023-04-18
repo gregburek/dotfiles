@@ -1,6 +1,7 @@
 ZSH_HIGHLIGHT_MAXLENGTH=100
 HISTSIZE=1000
 SAVEHIST=1000
+DISABLE_MAGIC_FUNCTIONS=true
 #. ~/.zsh/config
 #. ~/.zsh/completion
 if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then

@@ -3,7 +3,7 @@
 	email = greg.burek@gmail.com
 [core]
 	quotepath = false
-	editor = /usr/local/bin/vim
+	editor = vim
 	excludesfile = ~/.gitignore_global
 [format]
 	pretty = oneline
@@ -23,7 +23,7 @@
     status = status -sb
 	ca = commit --amend --reuse-message=HEAD
 	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
-	up = pull --rebase --autostash upstream master
+	up = pull --rebase --autostash origin main
 	oup = pull --rebase --autostash origin master
 [push]
 	default = current

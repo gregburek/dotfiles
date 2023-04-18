@@ -1,13 +1,14 @@
 call plug#begin()
 Plug '/usr/local/opt/fzf'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 Plug 'plasticboy/vim-markdown'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -15,8 +16,10 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'dougireton/vim-chef'
+Plug 'rust-lang/rust.vim'
+Plug 'github/copilot.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -445,7 +448,7 @@ au FileType python set indentkeys-=0#
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
+"au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
@@ -556,12 +559,13 @@ let g:ale_lint_on_enter = 0
 let g:ale_python_auto_pipenv = 1
 let g:ale_fixers = {
 \   'go':       ['gofmt', 'goimports'],
-\   'json':     ['jq'],
+\   'json':     ['jq', 'prettier'],
 \   'sh':       ['shfmt'],
-\   'python':   ['black'],
-\   '*':        ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'terraform': ['terraform'],
+\   'python':   ['isort', 'black'],
+\   '*':        ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'prettier'],
+\   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
+\   'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']
 \}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 79'
@@ -569,6 +573,8 @@ let g:ale_sh_shfmt_options = '-s -i 2 -ci'
 let g:ale_sh_shellcheck_exclusions = 'SC1090,SC2016'
 let g:ale_linters_ignore = {'ruby': ['rubocop']}
 let g:ale_pattern_options = {'configly-data': {'ale_fixers': []}, 'alerts': {'ale_fixers': []}}
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
 
 
 """"""""""""""""""""""""""""""
