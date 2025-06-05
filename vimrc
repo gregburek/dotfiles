@@ -558,10 +558,10 @@ let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_enter = 0
 let g:ale_python_auto_pipenv = 1
 let g:ale_fixers = {
-\   'go':       ['gofmt', 'goimports'],
+\   'go':       ['gopls', 'gofmt', 'goimports'],
 \   'json':     ['jq', 'prettier'],
 \   'sh':       ['shfmt'],
-\   'python':   ['isort', 'black'],
+\   'python':   ['isort', 'ruff'],
 \   '*':        ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
 \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
@@ -572,7 +572,7 @@ let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --p
 let g:ale_sh_shfmt_options = '-s -i 2 -ci'
 let g:ale_sh_shellcheck_exclusions = 'SC1090,SC2016'
 let g:ale_linters_ignore = {'ruby': ['rubocop']}
-let g:ale_pattern_options = {'configly-data': {'ale_fixers': []}, 'alerts': {'ale_fixers': []}}
+let g:ale_pattern_options = {'configly-data': {'ale_fixers': []}, 'alerts': {'ale_fixers': []}, 'robotic-cook-jenkins-jobs': {'ale_fixers': []}}
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
 

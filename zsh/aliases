@@ -41,6 +41,7 @@ alias videosync='nice -n 20 rsync -a --exclude-from=/Users/gregburek/.rsync/excl
 alias mutt 'cd ~/Downloads && mutt'
 
 # git aliases to be combined with ok-my-zsh
+alias vst='vim -O $(git status -sb | grep -v master | cut -c 3- | xargs)'
 unalias gst
 alias gst='git status -sb'
 unalias gl
