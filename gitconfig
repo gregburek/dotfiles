@@ -3,7 +3,7 @@
 	email = greg.burek@gmail.com
 [core]
 	quotepath = false
-	editor = vim
+	editor = nvim -f
 	excludesfile = ~/.gitignore_global
 [format]
 	pretty = oneline
