@@ -118,3 +118,5 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Added by eng-bootstrap 2024-09-20 08:58:28
 export KITCHEN_LOCAL_YAML=.kitchen.gce.yml
+
+unsetopt BEEP
