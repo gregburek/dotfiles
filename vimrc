@@ -607,6 +607,7 @@ nnoremap <leader>gf :GFiles<CR>
 nnoremap <leader>gm :GFiles?<CR>
 nnoremap <leader>bl :BLines<CR>
 nnoremap <C-p> :Files<Cr>
+set rtp+=/usr/local/opt/fzf
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 

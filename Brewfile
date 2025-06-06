@@ -1,11 +1,8 @@
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "osx-cross/avr"
-tap "px4/px4"
+# tap "heroku/brew"
+# tap "homebrew/bundle"
+# tap "homebrew/cask"
+# tap "homebrew/core"
+# tap "homebrew/services"
 # Search tool like grep, but optimized for programmers
 brew "ack"
 # Command-line interface for SQLite
@@ -18,8 +15,6 @@ brew "atomicparsley"
 brew "autoconf"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# Atmel AVR MCU programmer
-brew "avrdude"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -30,10 +25,6 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Device firmware update based USB programmer for Atmel chips
-brew "dfu-programmer"
-# USB programmer
-brew "dfu-util"
 # AST-based pattern checker for JavaScript
 brew "eslint"
 # Simple, fast and user-friendly alternative to find
@@ -46,10 +37,6 @@ brew "fzf"
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Add GitHub support to git on the command-line
-brew "hub"
-# Configurable static site generator
-brew "hugo"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
@@ -118,15 +105,5 @@ brew "zlib"
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
-# Everything you need to get started with Heroku
-brew "heroku/brew/heroku"
-# GNU compiler collection for AVR 8-bit and 32-bit Microcontrollers
-brew "osx-cross/avr/avr-gcc@8"
-# GNU Embedded Toolchain for ARM
-brew "px4/px4/gcc-arm-none-eabi"
-cask "aws-vault"
-cask "font-fira-code"
-cask "font-firacode-nerd-font"
 cask "google-cloud-sdk"
-cask "mactex-no-gui"
 cask "vlc"

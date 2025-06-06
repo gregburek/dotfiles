@@ -30,3 +30,6 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 export BAT_PAGER="less -R"
 
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
